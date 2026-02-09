@@ -1,8 +1,12 @@
-# Simple S3 Bucket using all three types of variables
-resource "aws_s3_bucket" "demo" {
-  bucket = local.full_bucket_name # Local variable (computed)
+resource "aws_instance" "example" {
+  instance_type = var.instance_type
+  ami      = data.aws_ami.amazon_linux.id
+  region = var.region
 
-  tags = local.common_tags # Local variable (tags)
+  tags = {
+    Name = "${var.environment}-ec2-instance"
+    Environment = var.environment
+
+  }
 }
-
 
