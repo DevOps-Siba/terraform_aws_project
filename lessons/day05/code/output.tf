@@ -1,20 +1,15 @@
-# Output Variables - Values returned after Terraform apply
-output "bucket_name" {
-  description = "Name of the S3 bucket"
-  value       = aws_s3_bucket.demo.bucket
+output "vpc_id" {
+  description = "The ID of the created vpc"
+  value  = aws_vpc.example.id
 }
 
-output "bucket_arn" {
-  description = "ARN of the S3 bucket"
-  value       = aws_s3_bucket.demo.arn
+
+output "ec2_id" {
+  description = "the ID of the created EC2 instances"
+  value = aws_instance.example.id
 }
 
-output "environment" {
-  description = "Environment from input variable"
-  value       = var.environment
-}
-
-output "tags" {
-  description = "Tags from local variable"
-  value       = local.common_tags
+output "instance_public_ip" {
+  description = "The public IP address of the EC2 instance"
+  value = aws_instance.example.public_ip
 }
